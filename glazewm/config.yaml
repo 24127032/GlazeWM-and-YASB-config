@@ -1,0 +1,192 @@
+general:
+  # Run these when GlazeWM starts
+  startup_commands: []
+  
+  # Cursor jumps to the center of the window when you focus it
+  cursor_jump:
+    enabled: true
+    trigger: 'monitor_focus'
+
+  # 'cloak' is faster, 'hide' is smoother. Stick to cloak for performance.
+  hide_method: 'hide' 
+
+gaps:
+  # This makes the "Unix Porn" look. 
+  scale_with_dpi: true
+  
+  # Space between two windows
+  inner_gap: '10px' 
+
+  # Space between windows and the edge of the screen
+  outer_gap:
+    top   : '6px'
+    bottom: '10px'
+    left  : '10px'
+    right : '10px'
+
+window_effects:
+  focused_window:
+    border:
+      enabled: true
+      color: '#fefefe' #89b4fa
+    transparency:
+      enabled: false
+      opacity: 1.0
+      
+  other_windows:
+    border:
+      enabled: true
+      color: '#45475a'
+    transparency:
+      enabled: true
+      opacity: 0.93
+
+workspaces:
+  - name: '1'
+  - name: '2'
+  - name: '3'
+  - name: '4'
+  - name: '5'
+  - name: '6'
+  - name: '7'
+  - name: '8'
+  - name: '9'
+
+window_rules:
+  # Apps that should NEVER tile (Popups, Settings, etc)
+  - commands: ['ignore']
+    match:
+      - window_process: { equals: 'Zalo' } # Ignore Zalo
+      - window_process: { equals: 'yasb' } # Ignore YASB
+      - window_process: { equals: 'PowerToys.Runner' }
+      - window_class: { regex: 'HwndWrapper' } # System popups
+      - window_title: { regex: 'Open File' }
+      - window_title: { regex: 'Save As' }
+      - window_process: { equals: 'Taskmgr' } # Task Manager
+
+  # Force Picture-in-Picture to float and stay on top
+  - commands: ['set-floating']
+    match:
+      - window_title: { regex: '[Pp]icture.in.[Pp]icture' }
+  
+  # Arknights: Endfield Launcher (Floating and Ignored to prevent freezes)
+  # Arknights: Endfield / Gryphline Launcher Fix
+  - commands: ['set-floating', 'ignore']
+    match:
+      - window_process: { equals: 'Games' }
+
+binding_modes:
+  - name: 'resize'
+    keybindings:
+      - commands: ['resize --width -2%']
+        bindings: ['h', 'left']
+      - commands: ['resize --width +2%']
+        bindings: ['l', 'right']
+      - commands: ['resize --height +2%']
+        bindings: ['k', 'up']
+      - commands: ['resize --height -2%']
+        bindings: ['j', 'down']
+      - commands: ['wm-disable-binding-mode --name resize']
+        bindings: ['escape', 'enter']
+
+keybindings:
+  # --- ESSENTIALS ---
+  - commands: ['shell-exec wt']
+    bindings: ['alt+enter'] # Open Terminal
+  
+  - commands: ['close']
+    bindings: ['alt+shift+q'] # Close Window
+
+  - commands: ['wm-exit']
+    bindings: ['alt+shift+e'] # Kill GlazeWM
+
+  - commands: ['wm-reload-config']
+    bindings: ['alt+shift+r'] # Reload Config
+
+  # --- FOCUS (Navigate) ---
+  - commands: ['focus --direction left']
+    bindings: ['alt+h', 'alt+left']
+  - commands: ['focus --direction right']
+    bindings: ['alt+l', 'alt+right']
+  - commands: ['focus --direction up']
+    bindings: ['alt+k', 'alt+up']
+  - commands: ['focus --direction down']
+    bindings: ['alt+j', 'alt+down']
+
+  # --- MOVING (Swap Windows) ---
+  - commands: ['move --direction left']
+    bindings: ['alt+shift+h', 'alt+shift+left']
+  - commands: ['move --direction right']
+    bindings: ['alt+shift+l', 'alt+shift+right']
+  - commands: ['move --direction up']
+    bindings: ['alt+shift+k', 'alt+shift+up']
+  - commands: ['move --direction down']
+    bindings: ['alt+shift+j', 'alt+shift+down']
+
+# --- WORKSPACES (SWITCHING) ---
+  - commands: ['focus --workspace 1']
+    bindings: ['alt+1']
+  - commands: ['focus --workspace 2']
+    bindings: ['alt+2']
+  - commands: ['focus --workspace 3']
+    bindings: ['alt+3']
+  - commands: ['focus --workspace 4']
+    bindings: ['alt+4']
+  - commands: ['focus --workspace 5']
+    bindings: ['alt+5']
+  - commands: ['focus --workspace 6']
+    bindings: ['alt+6']
+  - commands: ['focus --workspace 7']
+    bindings: ['alt+7']
+  - commands: ['focus --workspace 8']
+    bindings: ['alt+8']
+  - commands: ['focus --workspace 9']
+    bindings: ['alt+9']
+
+  # --- THROWING WINDOWS (MOVE TO WORKSPACE) ---
+  - commands: ['move --workspace 1', 'focus --workspace 1']
+    bindings: ['alt+shift+1']
+  - commands: ['move --workspace 2', 'focus --workspace 2']
+    bindings: ['alt+shift+2']
+  - commands: ['move --workspace 3', 'focus --workspace 3']
+    bindings: ['alt+shift+3']
+  - commands: ['move --workspace 4', 'focus --workspace 4']
+    bindings: ['alt+shift+4']
+  - commands: ['move --workspace 5', 'focus --workspace 5']
+    bindings: ['alt+shift+5']
+  - commands: ['move --workspace 6', 'focus --workspace 6']
+    bindings: ['alt+shift+6']
+  - commands: ['move --workspace 7', 'focus --workspace 7']
+    bindings: ['alt+shift+7']
+  - commands: ['move --workspace 8', 'focus --workspace 8']
+    bindings: ['alt+shift+8']
+  - commands: ['move --workspace 9', 'focus --workspace 9']
+    bindings: ['alt+shift+9']
+    
+  # --- WINDOW STATES ---
+  - commands: ['toggle-floating --centered']
+    bindings: ['alt+shift+space'] # Float a window
+    
+  - commands: ['toggle-fullscreen']
+    bindings: ['alt+f'] # Fullscreen
+    
+  - commands: ['toggle-tiling-direction']
+    bindings: ['alt+v'] # SWITCH SPLIT (Horizontal/Vertical)
+    
+  # --- RESIZE MODE ---
+  - commands: ['wm-enable-binding-mode --name resize']
+    bindings: ['alt+r']
+
+  # --- NOTE ---
+  # I REMOVED 'Alt+Space' so your Flow Launcher will work!
+  # If you want to cycle focus, use Alt+C instead:
+  - commands: ['wm-cycle-focus']
+    bindings: ['alt+c']
+
+  # Pause GlazeWM tiling for current window
+  - command: "toggle floating"
+    binding: "alt+shift+f"
+
+  # Completely pause GlazeWM (it will stop managing windows until toggled back)
+  - command: "toggle pause"
+    binding: "alt+shift+p"
