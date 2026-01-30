@@ -1,0 +1,257 @@
+watch_stylesheet: true
+watch_config: true
+debug: true
+bars:
+  primary-bar:
+    enabled: true
+    screens: ['*'] 
+    class_name: "yasb-bar"
+    alignment:
+      position: "top"
+      center: false
+    blur_effect:
+      enabled: false
+      acrylic: false
+      dark_mode: false
+      round_corners: false
+      border_color: None
+    window_flags:
+      always_on_top: false
+      windows_app_bar: true
+      hide_on_fullscreen: true
+    dimensions:
+      width: "100%"
+      height: 32
+    padding:
+      top: 10
+      left: 10
+      bottom: 0
+      right: 10
+    
+    widgets:
+      left:   ["glazewm_workspaces","taskbar","pomodoro"]
+      center: ["clock", "apps"]
+      right:  ["systray","wifi","volume","power_menu"]
+
+
+widgets:
+
+
+  systray:
+    type: "yasb.systray.SystrayWidget"
+    options:
+      class_name: "systray"
+      label_collapsed: ""
+      label_expanded: ""
+      label_position: "left"
+      icon_size: 18
+      pin_click_modifier: "alt" 
+      show_unpinned: false
+      show_battery: false
+      show_volume: false
+      show_network: false
+
+  taskbar:
+    type: "yasb.taskbar.TaskbarWidget"
+    options:
+      icon_size: 17
+      animation:
+        enabled: false
+
+
+  glazewm_workspaces:
+    type: "glazewm.workspaces.GlazewmWorkspacesWidget"
+    options:
+      hide_empty_workspaces: true
+      hide_if_offline: true
+
+  wifi:
+    type: "yasb.wifi.WifiWidget"
+    options:
+      label: "{wifi_icon}"
+      update_interval: 5000
+      callbacks:
+        on_left: "toggle_menu"
+        on_middle: "exec explorer ms-availablenetworks:"
+        on_right: "exec explorer ms-settings:network"
+      ethernet_label: "<span>{wifi_icon}</span>"
+      ethernet_label_alt: "<span>{wifi_icon}</span>{ip_addr}"
+      menu_config:
+        blur: true
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "#202020"
+        alignment: "right"
+        direction: "down"
+        offset_top: 5
+        offset_left: 53
+      ethernet_icon: ""
+      wifi_icons: [
+      "",  # Icon for 0% strength
+      "",  # Icon for 1-24% strength
+      "",  # Icon for 1-24% strength
+      "",  # Icon for 1-24% strength
+      "",  # Icon for 1-24% strength
+      ]   
+
+  volume:
+    type: "yasb.volume.VolumeWidget"
+    options:
+      label: "{icon}"
+      # Updated to Material Design Icons for consistency
+      volume_icons:
+        - "󰝟"  # Muted (mdi-volume-mute)
+        - "󰕿"  # Low (mdi-volume-low)
+        - "󰖀"  # Medium (mdi-volume-medium)
+        - "󰖀"  # Medium (mdi-volume-medium)
+        - "󰕾"  # High (mdi-volume-high)
+      callbacks:
+        on_right: "exec cmd.exe /c start ms-settings:sound"    
+      audio_menu:
+        border_color: "#202020"
+        blur: True
+        alignment: 'right'
+        offset_top: 5
+        offset_left: 23
+
+  clock:
+    type: "yasb.clock.ClockWidget"
+    options:
+      label: "<span>{icon}</span>   {%H:%M}"
+      label_alt: "{%A %d %b  %H:%M:%S}"
+      locale: ""
+      update_interval: 1000
+      timezones: []
+      icons:
+        clock_01 : "Zzz..."
+        clock_02 : "Zzz..."
+        clock_03 : "Zzz..."
+        clock_04 : "Zzz..."
+        clock_05 : "Zzz..."
+        clock_06 : "Zzz..."
+        clock_07 : "Study"
+        clock_08 : "Study"
+        clock_09 : "Break"
+        clock_10 : "Study"
+        clock_11 : "Study"
+        clock_12 : "Lunch"
+        clock_13 : "Study"
+        clock_14 : "Study"
+        clock_15 : "Break"
+        clock_16 : "Study"
+        clock_17 : "Study"
+        clock_18 : "Dinner"
+        clock_19 : "Relax"
+        clock_20 : "Relax"
+        clock_21 : "Zzz..."
+        clock_22 : "Zzz..."
+        clock_23 : "Zzz..."
+        clock_24 : "Zzz..."
+      calendar: 
+        blur: true
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "system"
+        alignment: "center"
+        direction: "down"
+        offset_top: 6
+        offset_left: 0
+        show_holidays: false
+        show_week_numbers: true
+        country_code: "VN"
+        holiday_color: "#f38ba8"
+        extended: false
+      callbacks:
+        on_left: "toggle_calendar"
+        on_middle: "next_timezone"
+        on_right: "toggle_label"
+      container_padding:
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+      label_shadow:
+        enabled: false
+
+
+  power_menu:
+      type: "yasb.power_menu.PowerMenuWidget"
+      options:
+        label: "󰐥" 
+        uptime: False
+        blur: False
+        blur_background: False
+        animation_duration: 0
+        button_row: 5 
+        buttons:
+          # Changed to Material Design icons to fix rendering glitches
+          signout: ["󰍃", ""]  # mdi-logout
+          sleep:   ["󰤄", ""]  # mdi-sleep (Keep this, it works)
+          restart: ["󰑐", ""]  # mdi-restart
+          shutdown: ["󰐥", ""]  # mdi-power
+          cancel:  ["󰜺", ""]  # mdi-arrow-left
+
+  apps:
+    type: "yasb.applications.ApplicationsWidget"
+    options:
+      label: "{data}"
+      # Icon spacing usually handled by the widget, or spaces in CSS
+      app_list:
+        # Task Manager (Pulse Icon)
+        - {icon: "", launch: "taskmgr", name: "Task Manager"}
+        
+        # VS Code (VS Code Icon)
+        # Note: If 'code' doesn't work, replace with full path like "C:\\Users\\YOUR_USER\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe"
+        - {icon: "", launch: "code", name: "VS Code"} 
+        
+        # Brave Browser (Browser/Globe Icon)
+        # Note: Check your path if this doesn't open
+        - {icon: "", launch: "C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe", name: "Brave"}
+        
+        # Windows Terminal (Terminal Icon)
+        - {icon: "", launch: "wt", name: "Terminal"}
+      
+      label_shadow:
+        enabled: false
+
+
+  pomodoro:
+    type: "yasb.pomodoro.PomodoroWidget"
+    options:
+      label: "<span>{icon}</span> {remaining}"
+      label_alt: "<span>{icon}</span> {session}/{session_target} - {session_type}"
+      work_duration: 25
+      break_duration: 5
+      long_break_duration: 15
+      long_break_interval: 4
+      auto_start_breaks: true
+      auto_start_work: false
+      sound_notification: true
+      show_notification: true
+      session_target: 8
+      # Using the Work/Eat theme icons
+      icons:
+        work: "󱦟"      # Laptop (Work)
+        break: "󰍶"     # Fork/Knife (Eating/Break)
+        paused: "󱎮"    # Paused Timer
+      menu:
+        blur: true
+        round_corners: true
+        round_corners_type: "normal"
+        border_color: "#313244" # surface0
+        alignment: "right"
+        direction: "down"
+        offset_top: 6
+        offset_left: 50
+        # Progress Circle Colors
+        circle_background_color: "#313244"      # surface0
+        circle_work_progress_color: "#a6e3a1"   # green
+        circle_break_progress_color: "#89b4fa"  # blue
+        circle_thickness: 8
+        circle_size: 160
+      callbacks:
+        on_left: "toggle_menu"
+        on_middle: "reset_timer"
+        on_right: "toggle_label"
+      label_shadow:
+        enabled: false

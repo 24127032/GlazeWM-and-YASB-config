@@ -1,0 +1,638 @@
+:root {
+	/* Catppuccin Mocha Palette */
+	--rosewater	: #f5e0dc;
+	--flamingo	: #f2cdcd;
+	--pink		: #f5c2e7;
+	--mauve		: #cba6f7;
+	--red		: #f38ba8;
+	--maroon	: #eba0ac;
+	--peach		: #fab387;
+	--yellow	: #f9e2af;
+	--green		: #a6e3a1;
+	--teal		: #94e2d5;
+	--sky		: #89dceb;
+	--sapphire	: #74c7ec;
+	--blue		: #89b4fa;
+	--lavender	: #b4befe;
+	--text		: #cdd6f4;
+	--subtext1	: #bac2de;
+	--subtext0	: #a6adc8;
+	--overlay2	: #9399b2;
+	--overlay1	: #7f849c;
+	--overlay0	: #6c7086;
+	--surface2	: #585b70;
+	--surface1	: #45475a;
+	--surface0	: #313244;
+	--base		: #1e1e2e;
+	--mantle	: #181825;
+	--crust		: #11111b;
+}
+
+* {
+	font-size: 15px;
+	color: var(--text);
+	font-weight: 600;
+	font-family: "JetBrainsMono Nerd Font", monospace;
+	outline: none;
+}
+
+.tooltip {
+	background-color: var(--base);
+	border-radius: 6px;
+	padding: 5px 10px;
+	font-size: 12px;
+	margin-top: 5px;
+	color: var(--text);
+	font-weight: 700;
+	font-family: "JetBrainsMono Nerd Font", monospace;
+	border: 1px solid var(--surface0);
+}
+
+/* GlazeWM */
+
+.glazewm-workspaces {
+	border-radius: 8px;
+	padding: 0 6px;
+	background-color: var(--base);
+}
+
+.glazewm-workspaces .ws-btn {
+	color: var(--overlay1);
+	border: none;
+	padding: 0px 7px;
+	outline: none;
+}
+
+.glazewm-workspaces .ws-btn.active_empty,
+.glazewm-workspaces .ws-btn.active_populated {
+	color: var(--green);
+	outline: none;
+}
+
+/* Clock-Calendar */
+
+.clock-widget .widget-container .label {
+	color: var(--teal);
+}
+
+.clock-widget {
+	border-radius: 6px;
+	background-color: var(--base);
+	padding: 0 15px;
+}
+
+.calendar,
+.calendar .calendar-table,
+.calendar .calendar-table::item {
+	background-color: var(--base);
+	color: var(--text);
+	border-radius: 8px;
+	outline: none;
+	border: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+.calendar .calendar-table::item:selected {
+	background-color: var(--teal);
+	color: var(--base);
+	margin: 0px;
+	padding: 0px;
+}
+
+.calendar .day-label,
+.calendar .month-label,
+.calendar .date-label {
+	margin: -50px;
+}
+
+/* Taskbar */
+
+.taskbar-widget {
+	background-color: var(--base);
+	margin-left: 8px;
+	border-radius: 8px;
+}
+
+.taskbar-widget .app-container {
+	padding: 0 8px;
+}
+
+/* Bluetooth */
+
+.bluetooth-widget .widget-container {
+	background-color: var(--base);
+	margin: -15px;
+}
+.bluetooth-widget .label {
+	padding: 5px;
+	font-size: 14px;
+	color: var(--blue);
+}
+
+/* Wifi */
+
+.wifi-widget {
+	background-color: var(--base);
+}
+
+.wifi-widget .widget-container .label {
+	font-size: 14px;
+	padding-right: 15px;
+	padding-left: 5px;
+	color: var(--peach);
+}
+
+.wifi-widget .widget-container .icon {
+	font-size: 13px;
+	padding-right: 15px;
+	padding-left: 5px;
+	color: var(--peach);
+}
+
+/* Volume */
+
+.volume-widget {
+	background-color: var(--base);
+}
+
+.volume-widget .label {
+	padding-right: 15px;
+	color: var(--green);
+}
+
+.audio-menu {
+	border-radius: 0px;
+	background-color: var(--base);
+	border: 1px solid var(--surface0);
+}
+
+.audio-container .device {
+	border-radius: 6px;
+	padding: 6px 8px;
+	margin: 3px 0;
+}
+
+.audio-container .device.selected {
+	background-color: var(--surface0);
+}
+
+.audio-container .device:hover {
+	background-color: var(--surface1);
+	color: var(--text);
+	border: 0px;
+}
+
+.volume-slider::groove {
+	background-color: var(--surface1);
+	height: 4px;
+	margin: 0px 10px;
+	border-radius: 2px;
+}
+
+.volume-slider::handle {
+	background-color: var(--green);
+	height: 16px;
+	width: 12px;
+	margin: -8px 0;
+	border-radius: 3px;
+}
+.volume-slider::sub-page {
+	background-color: var(--green);
+	height: 4px;
+	border-radius: 2px;
+}
+
+/* Power menu */
+
+.power-menu-widget .label {
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
+	padding-right: 13px;
+	background-color: var(--base);
+	color: var(--red);
+	font-size: 16px;
+	margin-right: 0.5px;
+}
+
+.power-menu-popup {
+	border: none;
+	border-radius: 8px;
+	background-color: var(--base);
+}
+
+.power-menu-popup.hover {
+	background-color: var(--surface0);
+}
+
+.power-menu-popup .button {
+	width: 150px;
+	height: 150px;
+	border: 0px;
+}
+
+.power-menu-popup .button.hover {
+	color: var(--text);
+	background-color: var(--surface0);
+}
+
+.power-menu-popup .button .icon {
+	font-size: 60px;
+	padding-top: 30px;
+	font-family: "JetBrainsMono Nerd Font";
+}
+
+.power-menu-popup .button .label {
+	color: transparent;
+	font-size: 1px;
+}
+
+.power-menu-popup .button.cancel .icon {
+	color: var(--mauve);
+}
+.power-menu-popup .button.shutdown .icon {
+	color: var(--red);
+}
+.power-menu-popup .button.restart .icon {
+	color: var(--green);
+	font-size: 65px;
+	margin-top: -5px;
+}
+.power-menu-popup .button.sleep .icon {
+	font-size: 80px;
+	margin-top: -15px;
+	color: var(--teal);
+}
+.power-menu-popup .button.signout .icon {
+	color: var(--peach);
+}
+
+/* Tray */
+
+.systray .button {
+	border: none;
+	padding: 8px 4px;
+	background-color: var(--base);
+	font-weight: 1000;
+}
+
+.systray .unpinned-visibility-btn {
+	border-top-left-radius: 8px;
+	border-bottom-left-radius: 8px;
+	height: 30px;
+	padding: 2px 5px;
+	padding-left: 10px;
+	border: none;
+	background-color: var(--base);
+	color: var(--pink);
+	margin-right: -0.5px;
+	font-size: 17px;
+	outline: none;
+}
+
+.systray .unpinned-visibility-btn:checked {
+	color: var(--pink);
+	margin-right: -0.5px;
+	outline: none;
+}
+
+/* Weather */
+
+.weather-widget {
+	padding-right: 15px;
+}
+.weather-widget .label {
+	padding-right: 5px;
+	color: var(--yellow);
+}
+.weather-widget .icon {
+	font-size: 18px;
+	padding-right: 5px;
+	color: var(--yellow);
+}
+
+/* Wifi Menu */
+
+.wifi-menu {
+	max-height: 350px;
+	min-height: 375px;
+	min-width: 300px;
+	max-width: 1000px;
+	background-color: var(--base);
+	border: 1px solid var(--surface0);
+}
+
+.wifi-menu .progress-bar {
+	background-color: var(--surface0);
+	border: none;
+	max-height: 2px;
+}
+
+.wifi-menu .progress-bar::chunk {
+	background-color: var(--peach);
+}
+
+.wifi-menu .header {
+	color: var(--base);
+	font-size: 1px;
+	padding: 0px;
+}
+
+.wifi-menu .error-message {
+	font-size: 14px;
+	font-weight: 600;
+	margin-bottom: 2px;
+	padding: 12px;
+	background-color: rgba(243, 139, 168, 0.2); /* Red alpha */
+	color: var(--red);
+	border-bottom: 1px solid var(--surface0);
+}
+
+.wifi-menu .wifi-list {
+	background-color: var(--base);
+	margin-right: 3px;
+}
+
+.wifi-menu .wifi-item {
+	background-color: var(--base);
+	min-height: 35px;
+	padding: 2px 12px;
+	margin: 2px 4px;
+	color: var(--text);
+}
+
+.wifi-menu .wifi-item:hover {
+	background-color: var(--surface0);
+	border-radius: 6px;
+}
+
+.wifi-menu .wifi-item[active=true] {
+	background-color: var(--surface0);
+	font-size: 14px;
+	border-radius: 6px;
+	min-height: 80px;
+}
+
+.wifi-menu .wifi-item .icon {
+	font-family: 'Segoe Fluent Icons';
+	font-size: 20px;
+	margin-right: 10px;
+	color: var(--text);
+}
+
+.wifi-menu .wifi-item .name {
+	color: var(--text);
+	font-size: 14px;
+	margin-right: 10px;
+}
+
+.wifi-menu .wifi-item .password {
+	background-color: transparent;
+	font-size: 14px;
+	color: var(--text);
+}
+
+.wifi-menu .wifi-item .connect {
+	background-color: var(--surface0);
+	color: var(--text);
+	padding: 4px 10px;
+	border-radius: 4px;
+	border: none;
+	font-size: 12px;
+}
+
+.wifi-menu .wifi-item .connect:hover {
+	background-color: var(--surface1);
+}
+
+.wifi-menu .footer {
+	font-size: 10px;
+	font-weight: 600;
+	padding: 10px;
+	color: var(--overlay1);
+}
+
+.wifi-menu .footer .settings-button,
+.wifi-menu .footer .refresh-icon {
+	background-color: transparent;
+	border: none;
+	min-width: 26px;
+	min-height: 26px;
+	color: var(--overlay1);
+}
+
+.wifi-menu .footer .refresh-icon:hover,
+.wifi-menu .footer .settings-button:hover {
+	background-color: var(--surface0);
+	border-radius: 4px;
+	color: var(--text);
+}
+
+/* Apps Launcher */
+
+.apps-widget {
+    background-color: var(--base);
+    margin-left: 8px;
+    border-radius: 8px;
+}
+
+.apps-widget .widget-container {
+    padding: 0 10px;
+}
+
+.apps-widget .label {
+    font-size: 12px;       /* Slightly larger icons for easy clicking */
+    color: var(--teal); /* Catppuccin Lavender */
+    padding: 0 1px;         /* Spacing between icons */
+    letter-spacing: 8px;   /* Adds space between the icons */
+}
+
+/* --- CLOCK WIDGET (ON THE BAR) --- */
+.clock-widget {
+    background-color: var(--base);
+    border-radius: 6px;
+    padding: 0 15px;
+}
+
+.clock-widget .label {
+    color: var(--teal);
+}
+
+.clock-widget .icon {
+    color: var(--teal);
+    font-size: 14px;
+    padding-right: 4px;
+}
+
+.clock-widget .icon.alarm {
+    color: var(--red);
+    margin-left: 4px;
+}
+
+.clock-widget .label.alarm {
+    color: var(--blue);
+    margin-left: 4px;
+}
+
+
+/* --- CALENDAR POPUP (FIXED FOR CLIPPING AND DOTS) --- */
+.clock-popup.calendar {
+    min-width: 480px;
+    background-color: var(--mantle);
+    border: 1px solid var(--surface0);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+/* Big Date Fix: Reset margins to 10px to stop the numbers from clipping off-screen */
+.clock-popup.calendar .date-label {
+    font-size: 80px;
+    font-weight: 900;
+    color: var(--text);
+    margin: 10px 0; 
+    padding: 0;
+    line-height: 0.8;
+}
+
+/* Day, Month, and Week text */
+.clock-popup.calendar .day-label,
+.clock-popup.calendar .month-label,
+.clock-popup.calendar .week-label {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 14px;
+    color: var(--subtext1);
+    margin: 0;
+    padding: 2px 0;
+}
+
+/* Calendar Grid Fix: Preventing '...' truncation */
+.clock-popup.calendar .calendar-table {
+    background-color: transparent;
+    border-spacing: 2px; /* Space between the day squares */
+}
+
+.clock-popup.calendar .calendar-table::item {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 11px;         /* JetBrains Mono is wide; 11px ensures numbers fit */
+    padding: 2px 4px;        /* Low padding stops the widget from using '...' */
+    min-width: 25px;         /* Ensures cells are wide enough for double digits */
+    min-height: 25px;
+    color: var(--text);
+    background-color: transparent;
+    border-radius: 6px;
+}
+
+/* Weekday Headers (T2, T3... or Mon, Tue...) */
+.clock-popup.calendar .calendar-table::header {
+    color: var(--mauve);
+    font-weight: bold;
+    font-size: 11px;
+    padding-bottom: 8px;
+}
+
+/* Current Day Highlight */
+.clock-popup.calendar .calendar-table::item:selected {
+    background-color: var(--teal);
+    color: var(--base);
+    font-weight: bold;
+}
+
+/* Extended Container (Holidays/Events list if enabled) */
+.clock-popup.calendar .extended-container {
+    border-left: 1px solid var(--surface1);
+    margin-left: 15px;
+    padding-left: 15px;
+}
+
+.clock-popup.calendar .upcoming-events-header {
+    font-size: 12px;
+    color: var(--subtext0);
+    margin-bottom: 8px;
+}
+
+.clock-popup.calendar .holiday-label {
+    color: var(--red);
+    font-weight: bold;
+}
+
+/* Pomodoro Widget */
+.pomodoro-widget {
+    background-color: var(--base);
+    margin-left: 5px;
+	margin-right: 8px;
+    border-radius: 8px;
+    padding: 0 13px;
+}
+
+.pomodoro-widget .icon {
+    font-size: 14px;
+    padding-right: 5px;
+}
+
+/* State Colors */
+.pomodoro-widget .label.work,
+.pomodoro-widget .icon.work {
+    color: var(--green);
+}
+
+.pomodoro-widget .label.break,
+.pomodoro-widget .icon.break {
+    color: var(--blue);
+}
+
+.pomodoro-widget .label.paused,
+.pomodoro-widget .icon.paused {
+    color: var(--overlay1);
+}
+
+/* Pomodoro Popup Menu */
+.pomodoro-menu {
+    background-color: rgba(24, 24, 37, 0.7); /* Mantle with transparency for blur */
+    border: 1px solid var(--surface0);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.pomodoro-menu .status {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    font-family: "JetBrainsMono Nerd Font", monospace;
+}
+
+.pomodoro-menu .session {
+    font-size: 12px;
+    color: var(--subtext1);
+    margin-top: 5px;
+}
+
+/* Menu Buttons */
+.pomodoro-menu .button {
+    background-color: var(--red);
+    color: var(--base);
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-weight: 600;
+    margin: 5px;
+}
+
+.pomodoro-menu .button:hover {
+    background-color: var(--surface1);
+}
+
+.pomodoro-menu .button.pause {
+    background-color: var(--yellow);
+    color: var(--base);
+}
+
+.pomodoro-menu .button.start {
+    background-color: var(--green);
+    color: var(--base);
+}
+
+/* The Progress Circle padding */
+.pomodoro-widget .progress-circle {
+    padding-right: 5px;
+}
