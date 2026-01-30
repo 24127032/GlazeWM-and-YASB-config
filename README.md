@@ -21,7 +21,7 @@ credits: https://www.youtube.com/@SleepyCatHey
 
 ### 1. Prerequisites
 - **Fonts**: Install [JetBrainsMono Nerd Font](https://www.nerdfonts.com/font-downloads).
-- **Window Manager**: Install [GlazeWM](https://github.com/glazewm/glazewm).
+- **Window Manager**: Install [GlazeWM](https://github.com/glzr-io/glazewm).
 - **Status Bar**: Install [YASB](https://github.com/amnweb/yasb).
 
 ### 2. File Placement
